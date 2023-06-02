@@ -60,3 +60,14 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model Expense {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  isIncome         Boolean
+  account          String
+  amount           Float
+  transactionType  String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+

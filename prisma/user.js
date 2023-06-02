@@ -14,17 +14,6 @@ export const getUser = async id => {
   return user
 }
 
-// CREATE
-export const createUser = async (email, name, birthYear) => {
-  const user = await prisma.user.create({
-    data: {
-      email,
-      name,
-      birthYear
-    }
-  })
-  return user
-}
 
 // UPDATE
 export const updateUser = async (id, updateData) => {
