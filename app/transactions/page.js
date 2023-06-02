@@ -1,12 +1,13 @@
-import React from 'react'
-import TransactionList from '../components/transactions/TransactionList'
+import TransactionList from "../components/transactions/TransactionList";
 
-const page = () => {
+const Transaction = () => {
   return (
     <div>
-      <TransactionList></TransactionList>
+      <h1>Transaction</h1>
+      <TransactionList />
+      {/* {status === 'authenticated' && <TransactionList userId={data.user}/> } */}
     </div>
   )
 }
 
-export default page
+export default Transaction;

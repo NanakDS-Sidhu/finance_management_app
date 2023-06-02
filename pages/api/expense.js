@@ -5,6 +5,7 @@ export default async function handle(req, res) {
     switch (req.method) {
       case 'GET': {
         if (req.query.id) {
+          console.log(req.query.userId , "bye");
           // Get a single user if id is provided is the query
           // api/users?id=1
           const user = await getExpenseByid(req.query.userId,req.query.id)

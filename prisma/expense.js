@@ -7,6 +7,7 @@ export const getAllExpense = async (userId) => {
     }
 
     try {
+        console.log(userId,"hi");
         const expenses = await prisma.expense.findMany({
             where: {
                 userId: userId,
