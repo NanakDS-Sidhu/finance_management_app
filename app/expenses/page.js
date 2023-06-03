@@ -7,7 +7,7 @@ import TransactionList from "../components/transactions/TransactionList"
 const expenses = () => {
     const{data,status}=useSession();
   return (
-    <div>
+    <div className=" bg-slate-800">
       {status==="loading"?"Loading":<></>}
       {status === 'authenticated' ?<TransactionList email={data.user.email}></TransactionList>:<></>}
     </div>
