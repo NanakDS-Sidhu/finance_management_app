@@ -14,6 +14,12 @@ export const getUser = async id => {
   return user
 }
 
+export const getUserbyEmail = async e => {
+  const user = await prisma.user.findFirst({
+    where: { email : e}
+  })
+  return user
+}
 
 // UPDATE
 export const updateUser = async (id, updateData) => {

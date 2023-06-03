@@ -5,6 +5,7 @@ import {
     deleteUser,
     getAllUsers,
     getUser,
+    getUserbyEmail,
     updateUser
   } from '../../prisma/user'
   
@@ -17,7 +18,11 @@ import {
             // api/users?id=1
             const user = await getUser(req.query.id)
             return res.status(200).json(user)
-          } else {
+          }else if(req.query.email) {
+            const user = await getUserbyEmail(req.query.email)
+            return res.status(200).json(user)
+          } 
+          else {
             // Otherwise, fetch all users
             const users = await getAllUsers()
             return res.json(users)
