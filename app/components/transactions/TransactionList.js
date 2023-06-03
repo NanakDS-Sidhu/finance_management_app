@@ -31,6 +31,7 @@ export default function TransactionList(props) {
     catch(e){
       console.log(e)
     }
+    Userid.then((val)=>{getData(val.id)})
   },[])
   return <h1>{id}</h1>;
 }
