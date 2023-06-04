@@ -1,17 +1,20 @@
-'use client'
+// 'use client'
 
-import { useSession } from "next-auth/react"
+// import { useSession } from "next-auth/react"
 import TransactionList from "../components/transactions/TransactionList"
-
+// import { getServerSession } from "next-auth/next"
 
 const expenses = () => {
-    const{data,status}=useSession();
+    // const{data,status}=useSession();
+  // return (
+  //   <div>
+  //     {status==="loading"?"Loading":<></>}
+  //     {status === 'authenticated' ?<TransactionList email={data.user.email}></TransactionList>:<></>}
+  //   </div>
+  // )
   return (
-    <div>
-      {status==="loading"?"Loading":<></>}
-      {status === 'authenticated' ?<TransactionList email={data.user.email}></TransactionList>:<></>}
-    </div>
+    <TransactionList />
   )
 }
 
-export default expenses
+export default expenses;

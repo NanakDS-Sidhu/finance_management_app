@@ -1,37 +1,28 @@
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getUserbyEmail } from "@/prisma/user";
+import { getAllExpense } from "@/prisma/expense";
 
-'use client'
-import { useEffect, useState } from "react";
-
-async function getData(userId) {
-  const res = await fetch(`http://localhost:3000/api/expense?userId=${userId}`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
+async function getData() {
+  // const res = await fetch('http://localhost:3000/api/expense');
+  // return res.json();
+  const session = await getServerSession(authOptions)
+  if (!session) {
+    return res.status(401).json({ error: 'Unauthorized' });
   }
-  return res.json();
+  const user = await getUserbyEmail(session.user.email);
+  const users = await getAllExpense(user.id)
+  console.log(users);
+  return users;
 }
 
-async function getUser(email) {
-  const res = await fetch(`http://localhost:3000/api/user?email=${email}`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-    console.log(res)
-  }
-  return res.json();
-}
-
- 
-export default function TransactionList(props) {
-  const[id,setId]=useState()
-  console.log(props.email , "User")
-  useEffect(()=>{
-    let Userid
-    try{
-      Userid=getUser(props.email)
-    }
-    catch(e){
-      console.log(e)
-    }
-    Userid.then((val)=>{getData(val.id)})
-  },[])
-  return <h1>{id}</h1>;
+export default async function Page() {
+  const data = await getData();
+  return (
+    <ul>
+      {data.map(x => {
+        return <li>{x.amount}</li>
+      })}
+    </ul>
+  )
 }
