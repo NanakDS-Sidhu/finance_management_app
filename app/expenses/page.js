@@ -1,9 +1,11 @@
+
 import TransactionList from "../components/transactions/TransactionList"
 
 const expenses = () => {
+
   return (
 
-    <div className=" bg-slate-800">
+    <div className=" min-h-screen py-10 bg-zinc-950">
       <TransactionList />
     </div>
   )
