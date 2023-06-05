@@ -6,12 +6,15 @@ import { authOptions } from './auth/[...nextauth]';
 import { getServerSession } from "next-auth/next"
 
 export default async function handle(req, res) {
+  console.log(req.body,"odu");
+
   try {
-    const session = await getServerSession(req, res, authOptions)
-    if (!session) {
-      return res.status(401).json({ error: 'Unauthorized' });
-    }
-    const user = await getUserbyEmail(session.user.email);
+    // const session = await getServerSession(req, res, authOptions)
+    // if (!session) {
+    //   return res.status(401).json({ error: 'Unauthorized' });
+    // }
+    console.log(req.query,"hi");
+    const user = await getUserbyEmail(req.query.email);
     switch (req.method) {
       case 'GET': {
         if (req.query.id) {
@@ -50,9 +53,11 @@ export default async function handle(req, res) {
         return res.json(expense);
       }
       case 'DELETE': {
+
         // Delete an existing user
-        const {id } = req.query
-        const expense = await deleteExpense(user.id, id)
+        console.log(req.body,"bla")
+        const {eid } = req.body
+        const expense = await deleteExpense(user.id, eid)
         return res.json(expense)
       }
       default:
