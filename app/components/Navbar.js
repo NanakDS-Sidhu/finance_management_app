@@ -6,18 +6,7 @@ import Image from 'next/image';
 const Navbar = () => {
     const { data, status } = useSession();
     return (
-        // <div className='flex'>
-        //     <span>Navbar |</span>
-        //     {status === 'loading' && <span> loading... please wait</span>}
-        //     {status === 'authenticated' ? (
-        //         <>
-        //             <span className=' mr-2'> hi {data.user.name}</span>
-        //             <img width={25} height={25} src={data.user.image} alt={data.user.name + ' photo'} />
-        //             <button className='ml-2' onClick={signOut}>sign out</button>
-        //         </>
-        //     ): <button onClick={() => signIn('google')}>sign in with gooogle</button>
-        //     }
-        // </div>
+
         <nav class="flex dark:bg-slate-900 items-center relative justify-between bg-zinc-800 px-5 py-6 w-full h-16">
         <div>
             <a href="/">            <Image src="/Mediamodifier-Design.svg" width={100} height={100} ></Image></a>
@@ -32,6 +21,9 @@ const Navbar = () => {
           </li>
           <li class="font-medium p-3 hover:text-white sm:p-0 sm:hover:bg-transparent text-gray-600">
             <a href="/expenses" class="dark:text-white">Expenses</a>
+          </li>
+          <li class="font-medium p-3 hover:text-white sm:p-0 sm:hover:bg-transparent text-gray-600">
+            <a href="/expenses/create" class="dark:text-white">Manage</a>
           </li>
         </ul>
         <div class="flex gap-3 items-center text-3xl">
