@@ -34,7 +34,6 @@ const CreateExpense = () => {
             console.log('Fetch error:', error);
         }
     };
-    //   isIncome, account, amount, transactionType
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="bg-red-400 text-blue-400">
@@ -64,16 +63,16 @@ const CreateExpense = () => {
                 <label>
                     Transaction Type:
                     <select {...register('transactionType', { required: true })}>
-                        <option value={true}>Food</option>
-                        <option value={false}>Shopping</option>
-                        <option value={true}>Travel</option>
-                        <option value={false}>Entertainment</option>
-                        <option value={false}>Bills</option>
-                        <option value={false}>Health</option>
-                        <option value={false}>Education</option>
-                        <option value={false}>Charity</option>
-                        <option value={false}>Investments</option>
-                        <option value={false}>Other</option>
+                        <option >Food</option>
+                        <option >Shopping</option>
+                        <option >Travel</option>
+                        <option >Entertainment</option>
+                        <option >Bills</option>
+                        <option >Health</option>
+                        <option >Education</option>
+                        <option >Charity</option>
+                        <option >Investments</option>
+                        <option >Other</option>
                     </select>
                 </label>
                 {errors.isIncome && <span>Type is required</span>}
