@@ -27,7 +27,8 @@ export default async function handle(req, res) {
       }
       case 'POST': {
         // Create a new user
-        const {isIncome, account, amount, transactionType } = req.query
+        const {isIncome, account, amount, transactionType } = req.body
+        console.log(isIncome, account, amount, transactionType)
         const expense = await insertExpense(user.id, isIncome === "true", account, parseFloat(amount), transactionType)
         return res.json(expense)
       }

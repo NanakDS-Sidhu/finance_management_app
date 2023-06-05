@@ -4,7 +4,7 @@ import { HiMail, IconName } from "react-icons/hi";
 export default function Home() {
   return(
     <div className="pr-1">
-      {/* <div className="Hero Section">
+      <div className="Hero Section">
       <div className="bg-cyan-200 m-4  p-8 rounded-2xl flex">
         <div className="Text Div w-1/2">        
           <h2 className=" text-cyan-700 font-mono mb-8 mt-4 mx-4">FINANCIAL MANAGEMENT</h2>
@@ -32,7 +32,7 @@ export default function Home() {
           <div className=" bg-purple-300 h-full m-4 mt-0 rounded-xl"></div>
         </div>
 
-      </div> */}
+      </div>
       <div className="h-screen"></div>
       <div className="h-screen"></div>
     </div>
