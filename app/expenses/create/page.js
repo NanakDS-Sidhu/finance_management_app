@@ -51,7 +51,7 @@ const CreateExpense = () => {
                     {sucess?<h1 className="text-base text-green-400 mt-4 ml-4">* Submitted Successfully *</h1>:""}
                     <form className="text-black p-10 py-5" onSubmit={handleSubmit(onSubmit)}>
                     <div>
-                <label for="Transaction" class="block mb-2 text-sm font-medium text-white">
+                <label htmlFor="Transaction" className="block mb-2 text-sm font-medium text-white">
                     Transaction Type:
                     <select id="Transaction" className=" border   text-sm rounded-lg  block w-full p-2.5 bg-zinc-800 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" {...register('isIncome', { required: true })} defaultValue={true}>
                         <option value={true}>Income</option>
@@ -61,20 +61,20 @@ const CreateExpense = () => {
                 {errors.isIncome && <span>Type is required</span>}
             </div>
             <div>
-                <label for="account" class="block mb-2 text-sm font-medium text-white">
+                <label htmlFor="account" className="block mb-2 text-sm font-medium text-white">
                     Account:
-                    <input id="account" class=" border text-sm rounded-lg  block w-full p-2.5 bg-zinc-800 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" {...register('account')} 
+                    <input id="account" className=" border text-sm rounded-lg  block w-full p-2.5 bg-zinc-800 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" {...register('account')} 
                     type="number" step="1" />
                 </label>
             </div>
             <div>
-                <label for="amount" class="block mb-2 text-sm font-medium text-white">
+                <label htmlFor="amount" className="block mb-2 text-sm font-medium text-white">
                     Amount:
-                    <input id="amount" class=" border text-sm rounded-lg  block w-full p-2.5 bg-zinc-800 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"  {...register('amount')} type="number" step="0.01" />
+                    <input id="amount" className=" border text-sm rounded-lg  block w-full p-2.5 bg-zinc-800 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"  {...register('amount')} type="number" step="0.01" />
                 </label>
             </div>
             <div>
-                <label for="Type" class="block mb-2 text-sm font-medium text-white">
+                <label htmlFor="Type" className="block mb-2 text-sm font-medium text-white">
                     Transaction Type:
                     <select id="Type" className=" border   text-sm rounded-lg  block w-full p-2.5 bg-zinc-800 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"{...register('transactionType', { required: true })}>
                         <option >Food</option>
@@ -94,7 +94,7 @@ const CreateExpense = () => {
                 <div className="flex justify-center">
                 <button
         type="Submit"
-        class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline w-1/2"
+        className="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline w-1/2"
         disabled={loading}
       >
         {loading?"Please wait":"Submit"}
@@ -103,50 +103,6 @@ const CreateExpense = () => {
         </form>
                 </div>
             </div>
-            {/* <form className="text-black" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label for="Transaction" class="block mb-2 text-sm font-medium text-white">
-                    Transaction Type:
-                    <select id="Transaction" className=" border   text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" {...register('isIncome', { required: true })} defaultValue={true}>
-                        <option value={true}>Income</option>
-                        <option value={false}>Expense</option>
-                    </select>
-                </label>
-                {errors.isIncome && <span>Type is required</span>}
-            </div>
-            <div>
-                <label>
-                    Account:
-                    <input {...register('account')} type="number" step="0.01" />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Amount:
-                    <input {...register('amount')} type="number" step="0.01" />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Transaction Type:
-                    <select {...register('transactionType', { required: true })}>
-                        <option >Food</option>
-                        <option >Shopping</option>
-                        <option >Travel</option>
-                        <option >Entertainment</option>
-                        <option >Bills</option>
-                        <option >Health</option>
-                        <option >Education</option>
-                        <option >Charity</option>
-                        <option >Investments</option>
-                        <option >Other</option>
-                    </select>
-                </label>
-                {errors.isIncome && <span>Type is required</span>}
-            </div>
-
-            <button type="submit">Submit</button>
-        </form> */}
       </div>
         
     );
