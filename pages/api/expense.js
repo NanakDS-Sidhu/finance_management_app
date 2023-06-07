@@ -9,12 +9,14 @@ export default async function handle(req, res) {
   console.log(req.body,"odu");
 
   try {
-    // const session = await getServerSession(req, res, authOptions)
-    // if (!session) {
-    //   return res.status(401).json({ error: 'Unauthorized' });
-    // }
+    const session = await getServerSession(req, res, authOptions)
+    if (!session) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    // console.log(session)
     console.log(req.query,"hi");
-    const user = await getUserbyEmail(req.query.email);
+    // const user = await getUserbyEmail(req.query.email);
+    const user = await getUserbyEmail(session.user.email);
     switch (req.method) {
       case 'GET': {
         if (req.query.id) {
@@ -24,8 +26,8 @@ export default async function handle(req, res) {
           return res.status(200).json(expense)
         } else {
           // Otherwise, fetch all expenses
-          const users = await getAllExpense(user.id)
-          return res.json(users)
+          const expenses = await getAllExpense(user.id)
+          return res.json(expenses)
         }
       }
       case 'POST': {
