@@ -33,6 +33,9 @@ const Navbar = () => {
         <li className="font-medium p-3 hover:text-white sm:p-0 sm:hover:bg-transparent text-gray-600">
           <a href="/expenses" className="dark:text-white">Expenses</a>
         </li>
+        <li className="font-medium p-3 hover:text-white sm:p-0 sm:hover:bg-transparent text-gray-600">
+          <a href="/expenses/create" className="dark:text-white">Manage</a>
+        </li>
       </ul>
       <div className="flex gap-3 items-center text-3xl">
         <a href="/dashboard"><MdOutlineSpaceDashboard /></a>
