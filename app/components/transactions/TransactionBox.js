@@ -2,7 +2,7 @@
 import TableData from "./TableData"
 
 export default function TransactionBox(props){
-    console.log(props.transaction)
+    console.log(typeof props.transaction.createdAt)
   return (
     <>
  
@@ -11,7 +11,7 @@ export default function TransactionBox(props){
         <TableData >{props.transaction.account}</TableData>
         <TableData >{props.transaction.isIncome?<span className=" text-green-400">{props.transaction.amount}</span>:<span className=" text-red-400">{props.transaction.amount}</span>}</TableData>
         <TableData ><span className=" text-purple-300">{props.transaction.transactionType}</span></TableData>
-        <TableData >{props.transaction.createdAt.toDateString()}</TableData>
+        <TableData >{props.transaction.createdAt.substring(0,10)}</TableData>
         <TableData type="last">{props.transaction.isIncome?<span className=" text-green-400">Income</span>:<span className=" text-red-400">Expense</span>}</TableData>
         </tr>
 
