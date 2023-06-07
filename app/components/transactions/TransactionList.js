@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 // import { getAllExpense } from "@/prisma/expense";
 import TransactionBox from "./TransactionBox";
 import { getSession } from "next-auth/react";
+import TypingCursor from "../Typing";
 
 // async function getData() {
 //   // const res = await fetch('http://localhost:3000/api/expense');
@@ -96,7 +97,9 @@ export default function Page() {
     )
   }else{
     return (
-      <h1>Please Wait</h1>
+    <div className="flex text-3xl items-center h-screen justify-center ">
+      <div className=" border-t-zinc-700 w-16 h-16 border-8 border-zinc-200 rounded-full animate-spin"></div> <span className="ml-10">Loading</span>
+    </div>
     )
   }
   
