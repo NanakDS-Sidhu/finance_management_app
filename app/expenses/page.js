@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react"
 import TransactionList from "../components/transactions/TransactionList"
 
 
-const expenses = () => {
+const Expenses = () => {
   const { data, status } = useSession();
   if (status === 'authenticated'){
     return (
@@ -32,4 +32,4 @@ const expenses = () => {
 
 }
 
-export default expenses;
+export default Expenses;

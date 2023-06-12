@@ -1,7 +1,6 @@
 // pages/api/user
 
 import {
-    createUser,
     deleteUser,
     getAllUsers,
     getUser,
@@ -31,7 +30,7 @@ import {
         case 'POST': {
           // Create a new user
           const { email, name, birthYear } = req.body
-          const user = await createUser(email, name, birthYear)
+          // const user = await createUser(email, name, birthYear)
           return res.json(user)
         }
         case 'PUT': {
